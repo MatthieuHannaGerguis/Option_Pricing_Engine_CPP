@@ -6,15 +6,17 @@
 class AmericanOption : public Option {
 protected:
     double _strike; // prix d’exercice
+    double getStrike() const;
 
 public:
-    // constructeur
     explicit AmericanOption(double expiry, double strike);
 
     // identification
     bool isAmericanOption() const override { return true; }
 
-    double getStrike() const { return _strike; }
 
     virtual double payoff(double S) const = 0;
+
+    virtual ~AmericanOption() = default; // destructeur au cas ou
+
 };

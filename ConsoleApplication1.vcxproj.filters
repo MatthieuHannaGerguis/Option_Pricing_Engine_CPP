@@ -66,13 +66,13 @@
     <ClCompile Include="EuropeanDigitalPutOption.cpp">
       <Filter>Source Files\Part 2 - The Cox-Ross-Rubinstein model</Filter>
     </ClCompile>
-    <ClCompile Include="Monte Carlo.cpp">
+    <ClCompile Include="MT.cpp">
       <Filter>Source Files\Part 3 - Path dependent options and Monte Carlo</Filter>
     </ClCompile>
     <ClCompile Include="CRRPricer.cpp">
       <Filter>Source Files\Part 2 - The Cox-Ross-Rubinstein model</Filter>
     </ClCompile>
-    <ClCompile Include="BlackScholesMCPricer1.cpp">
+    <ClCompile Include="BlackScholesMCPricer.cpp">
       <Filter>Source Files\Part 3 - Path dependent options and Monte Carlo</Filter>
     </ClCompile>
     <ClCompile Include="AsianCallOption.cpp">
@@ -122,7 +122,7 @@
     <ClInclude Include="EuropeanDigitalCallOption.h">
       <Filter>Header Files\Part 2 - The Cox-Ross-Rubinstein model</Filter>
     </ClInclude>
-    <ClInclude Include="Monte Carlo.h">
+    <ClInclude Include="MT.h">
       <Filter>Header Files\Part 3 - Path dependent options and Monte Carlo</Filter>
     </ClInclude>
     <ClInclude Include="AsianCallOption.h">
@@ -134,10 +134,10 @@
     <ClInclude Include="AsianPutOption.h">
       <Filter>Header Files\Part 3 - Path dependent options and Monte Carlo</Filter>
     </ClInclude>
-    <ClInclude Include="BlackScholesMCPricer1.h">
+    <ClInclude Include="BlackScholesMCPricer.h">
       <Filter>Header Files\Part 3 - Path dependent options and Monte Carlo</Filter>
     </ClInclude>
-    <ClInclude Include="EuropeanDigitalPutOption1.h">
+    <ClInclude Include="EuropeanDigitalPutOption.h">
       <Filter>Header Files\Part 2 - The Cox-Ross-Rubinstein model</Filter>
     </ClInclude>
     <ClInclude Include="AmericanOption.h">

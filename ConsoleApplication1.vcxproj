@@ -135,7 +135,7 @@
     <ClCompile Include="AsianCallOption.cpp" />
     <ClCompile Include="AsianOption.cpp" />
     <ClCompile Include="AsianPutOption.cpp" />
-    <ClCompile Include="BlackScholesMCPricer1.cpp" />
+    <ClCompile Include="BlackScholesMCPricer.cpp" />
     <ClCompile Include="BlackScholesPricer.cpp" />
     <ClCompile Include="CallOption.cpp" />
     <ClCompile Include="CRRPricer.cpp" />
@@ -146,7 +146,7 @@
     </ClCompile>
     <ClCompile Include="EuropeanDigitalOption.cpp" />
     <ClCompile Include="EuropeanDigitalPutOption.cpp" />
-    <ClCompile Include="Monte Carlo.cpp" />
+    <ClCompile Include="MT.cpp" />
     <ClCompile Include="Projet C++ final.cpp" />
     <ClCompile Include="PutOption.cpp" />
   </ItemGroup>
@@ -157,15 +157,15 @@
     <ClInclude Include="AsianCallOption.h" />
     <ClInclude Include="AsianOption.h" />
     <ClInclude Include="AsianPutOption.h" />
-    <ClInclude Include="BlackScholesMCPricer1.h" />
+    <ClInclude Include="BlackScholesMCPricer.h" />
     <ClInclude Include="BlackScholesPricer.h" />
     <ClInclude Include="CallOption.h" />
     <ClInclude Include="CRRPricer.h" />
     <ClInclude Include="EuropeanDigitalCallOption.h" />
     <ClInclude Include="EuropeanDigitalOption.h" />
-    <ClInclude Include="EuropeanDigitalPutOption1.h" />
+    <ClInclude Include="EuropeanDigitalPutOption.h" />
     <ClInclude Include="EuropeanVanillaOption.h" />
-    <ClInclude Include="Monte Carlo.h" />
+    <ClInclude Include="MT.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="PutOption.h" />

@@ -6,7 +6,7 @@
 
 class PutOption : public EuropeanVanillaOption {
 public:
-    // Constructeur (appelle le constructeur de la classe de base)
+    // constructeur (appelle le constructeur de la classe de base)
     explicit PutOption(double expiry, double strike)
         : EuropeanVanillaOption(expiry, strike) {}
 

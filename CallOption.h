@@ -24,4 +24,3 @@ public:
 };
 
 #endif //PROJECT_CALLOPTION_H
-#pragma once

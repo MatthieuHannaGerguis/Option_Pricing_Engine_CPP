@@ -1,13 +1,9 @@
 #include "AsianPutOption.h"
 
-AsianPutOption::AsianPutOption(double expiry, double strike, const std::vector<double>& timeSteps)
-    : AsianOption(expiry, strike, timeSteps) {}
+AsianPutOption::AsianPutOption(const std::vector<double>& timeSteps, double strike)
+    : AsianOption(timeSteps.back(), strike, timeSteps)
+{}
 
 double AsianPutOption::payoff(double S) const {
-    if (S < _strike) {
-        return _strike - S;   // payoff positif si S < K
-    }
-    else {
-        return 0.0;           // sinon, pas de payoff
-    }
+    return (S < getStrike()) ? (getStrike() - S) : 0.0;
 }

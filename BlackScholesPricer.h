@@ -6,16 +6,75 @@
 
 class BlackScholesPricer {
 private:
-    // membres prives
-    BlackScholesPricer() = default; // constructeur privé
+    // constructeur privé utilisé par ForVanilla() et ForDigital()
+    BlackScholesPricer() = default;
+
     EuropeanVanillaOption* _opt = nullptr;
     EuropeanDigitalOption* _digitalOpt = nullptr;
-    double _S = 0.0;  // prix de l’actif
-    double _r = 0.0;  // taux d’intérêt
-    double _v = 0.0;  // volatilité
+    double _S = 0.0;
+    double _r = 0.0;
+    double _v = 0.0;
 
+
+    double priceVanilla() const;
+    double priceDigital() const;
+
+    
+    static BlackScholesPricer ForVanilla(EuropeanVanillaOption* option,
+        double asset_price,
+        double interest_rate,
+        double volatility);
+
+    static BlackScholesPricer ForDigital(EuropeanDigitalOption* option,
+        double asset_price,
+        double interest_rate,
+        double volatility);
 
 public:
+
+    BlackScholesPricer(Option* option,
+        double asset_price,
+        double interest_rate,
+        double volatility)
+        : _S(asset_price), _r(interest_rate), _v(volatility)
+    {
+        if (!option)
+            throw std::invalid_argument("Null option pointer");
+
+        if (asset_price <= 0.0)
+            throw std::invalid_argument("Asset price must be > 0");
+        if (volatility <= 0.0)
+            throw std::invalid_argument("Volatility must be > 0");
+
+        // On utilise dynamic_cast pour vérifier dynamiquement le type réel de *option*.
+        // Si 'option' pointe réellement vers un objet de type EuropeanVanillaOption
+        // (ou d'une classe dérivée), alors dynamic_cast retourne un pointeur valide.
+        // Sinon, il retourne nullptr.
+        //
+        // Cela permet de savoir à l'exécution si l'option fournie est :
+        //   - une option vanille (Call/Put), dans ce cas v ≠ nullptr
+        //   - ou non, dans ce cas v == nullptr.
+        //
+        // Grâce à cette vérification dynamique, on peut affecter correctement
+        // _opt ou _digitalOpt, et ainsi choisir ensuite le bon calcul de prix.
+
+        if (auto* v = dynamic_cast<EuropeanVanillaOption*>(option)) {
+            _opt = v;
+            _digitalOpt = nullptr;
+            return;
+        }
+        // Vérifie si 'option' est en réalité une EuropeanDigitalOption.
+        // dynamic_cast retourne un pointeur valide si c'est le cas,
+        // sinon nullptr. Cela permet de détecter le type d'option.
+
+        if (auto* d = dynamic_cast<EuropeanDigitalOption*>(option)) {
+            _opt = nullptr;
+            _digitalOpt = d;
+            return;
+        }
+
+        throw std::invalid_argument("Unknown option type");
+    }
 
     BlackScholesPricer(EuropeanVanillaOption* option,
         double asset_price,
@@ -28,8 +87,6 @@ public:
         if (asset_price <= 0.0) throw std::invalid_argument("Asset price must be > 0");
         if (volatility <= 0.0) throw std::invalid_argument("Volatility must be > 0");
     }
-
-    // Digital option constructor
     BlackScholesPricer(EuropeanDigitalOption* option,
         double asset_price,
         double interest_rate,
@@ -41,33 +98,14 @@ public:
         if (asset_price <= 0.0) throw std::invalid_argument("Asset price must be > 0");
         if (volatility <= 0.0) throw std::invalid_argument("Volatility must be > 0");
     }
-
-
-
-
-    // factory methods
-    static BlackScholesPricer ForVanilla(EuropeanVanillaOption* option,
-        double asset_price,
-        double interest_rate,
-        double volatility);
-
-    static BlackScholesPricer ForDigital(EuropeanDigitalOption* option,
-        double asset_price,
-        double interest_rate,
-        double volatility);
-
-    // methods
-    double priceVanilla() const;
-    double priceDigital() const;
+    
+    double operator()() const;
+    
     double delta() const;
-    static double norm_cdf(double x);
 
-    double operator()() const {
-        if (_opt) return priceVanilla();
-        if (_digitalOpt) return priceDigital();
-        throw std::runtime_error("No option assigned to pricer");
-    }
+    static double norm_cdf(double x); // norm_cdf retourne la fonction de répartition  de la loi normale utilisée pour les formules Black–Scholes 
+    static double norm_pdf(double x);   //norm_pdf(x) retourne la densité de probabilité de la loi normale qui est utilisée notamment pour les greeks
 
 
-
+    
 };

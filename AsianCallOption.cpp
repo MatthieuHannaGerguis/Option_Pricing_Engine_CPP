@@ -1,15 +1,21 @@
 #include "AsianCallOption.h"
 
-//constructeur
-AsianCallOption::AsianCallOption(double expiry, double strike, const std::vector<double>& timeSteps)
-    : AsianOption(expiry, strike, timeSteps) {}
-
-// fonction payoff 
-double AsianCallOption::payoff(double S) const {
-    if (S > _strike) {
-        return S - _strike;   // payoff positif si S > K
+AsianCallOption::AsianCallOption(const std::vector<double>& timeSteps, double strike)
+    : AsianOption(timeSteps.back(), strike, timeSteps)
+{
+    if (strike < 0.0) {
+        throw std::invalid_argument("strike must be positive for Asian option");
     }
-    else {
-        return 0.0;           // sinon, l’option ne paie rien
+}
+        
+
+double AsianCallOption::payoff(double S) const {
+    {
+        if (S > getStrike()) {
+            return (S - getStrike());
+        }
+        else {
+            return 0.0;
+        }
     }
 }

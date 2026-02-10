@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PROJECT_EUROPEANDIGITALPUTOPTION_H
 #define PROJECT_EUROPEANDIGITALPUTOPTION_H
 
@@ -9,6 +10,8 @@ public:
 
     double payoff(double S) const override;
     optionType GetOptionType() const override;
+
+
 };
 
 #endif // PROJECT_EUROPEANDIGITALPUTOPTION_H

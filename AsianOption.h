@@ -11,14 +11,17 @@ class AsianOption : public Option {
 protected:
     double _strike;
     std::vector<double> _timeSteps;
+    double getStrike() const;
+
 
 public:
     // explicit empêche le constructeur d’être utilisé pour faire des conversions implicites de types.
-    explicit AsianOption(double expiry, double strikeValue, const std::vector<double>& timestamps);
+    explicit AsianOption(double expiry,
+        double strikeValue,
+        const std::vector<double>& timestamps);
 
     // gettter
     const std::vector<double>& getTimeSteps() const;
-    double getStrike() const;
     // on override pour indiquer que c'est une option asiatique
     bool isAsianOption() const override;
 
