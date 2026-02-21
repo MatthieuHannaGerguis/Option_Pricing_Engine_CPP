@@ -29,17 +29,38 @@ Full object-oriented pricing engine in C++ covering four major topics in computa
 ## 🏗️ Architecture
 
 ```
-├── Option.h / Option.cpp                 # Abstract base class (payoff, expiry)
-├── EuropeanVanillaOption                  # Call & Put (derived)
-├── EuropeanDigitalOption                  # Digital Call & Put (derived)
-├── AsianOption                            # Asian Call & Put (path-dependent, derived)
-├── AmericanOption                         # American Call & Put (early exercise, derived)
-├── BlackScholesPricer                     # Analytical BS pricing + Delta
-├── CRRPricer                             # Binomial tree pricing (European & American)
-├── BlackScholesMCPricer                   # Monte Carlo pricing engine
-├── BinaryTree.h                           # Template binary tree data structure
-├── MT.h                                   # Singleton Mersenne Twister RNG
-└── Subject_Project_C++.pdf                # Project subject
+│── Option.cpp / Option.h                          # Abstract base class (payoff, expiry)
+│
+├── European Vanilla Options
+│   ├── EuropeanVanillaOption.cpp / .h              # Abstract base (strike, optionType)
+│   ├── CallOption.cpp / .h                         # European Call
+│   └── PutOption.cpp / .h                          # European Put
+│
+├── European Digital Options
+│   ├── EuropeanDigitalCallOption.cpp / .h          # Digital Call
+│   └── EuropeanDigitalPutOption.cpp / .h           # Digital Put
+│
+├── Asian Options (Path-Dependent)
+│   ├── AsianOption.cpp / .h                        # Abstract base (time steps)
+│   ├── AsianCallOption.cpp / .h                    # Asian Call
+│   └── AsianPutOption.cpp / .h                     # Asian Put
+│
+├── American Options (Early Exercise)
+│   ├── AmericanOption.cpp / .h                     # Abstract base
+│   ├── AmericanCallOption.cpp / .h                 # American Call
+│   └── AmericanPutOption.cpp / .h                  # American Put
+│
+├── Pricers
+│   ├── BlackScholesPricer.cpp / .h                 # Analytical BS pricing + Delta
+│   ├── BlackScholesMCPricer.cpp / .h               # Monte Carlo pricing engine
+│   └── CRRPricer.cpp / .h                          # Binomial tree pricing
+│
+├── Utilities
+│   ├── BinaryTree.h                                # Template binary tree data structure
+│   ├── MT.cpp / MT.h                               # Singleton Mersenne Twister RNG
+│
+├── Project C++ final.cpp                           # Final consolidated source
+└── Subject_Project_C++.pdf                         # Project subject
 ```
 
 ## 🔧 Key Features
