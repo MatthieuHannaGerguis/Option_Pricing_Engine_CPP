@@ -1,4 +1,4 @@
-# Option Pricing Engine — C++ for Finance Project
+# Option Pricing Engine - C++ for Finance Project
 
 ## 📋 Project Information
 
@@ -24,7 +24,7 @@ Full object-oriented pricing engine in C++ covering four major topics in computa
 - **Black-Scholes analytical pricing** for European Vanilla and Digital options (Calls & Puts), with Delta computation.
 - **Cox-Ross-Rubinstein (CRR) binomial tree** for European and American options, with backward induction, closed-form formula, risk-neutral probabilities, and early exercise policy.
 - **Monte Carlo simulation** for European and path-dependent (Asian) options, with incremental path generation, 95% confidence intervals, and a singleton random number generator (`MT` class using `std::mt19937`).
-- **CRR as Black-Scholes approximation** — convergence of the binomial model to the continuous-time limit.
+- **CRR as Black-Scholes approximation** convergence of the binomial model to the continuous-time limit.
 
 ## 🏗️ Architecture
 
