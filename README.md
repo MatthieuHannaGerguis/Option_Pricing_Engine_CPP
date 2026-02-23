@@ -5,11 +5,11 @@
 | | |
 |---|---|
 | **School** | École Supérieure d'Ingénieurs Léonard-de-Vinci (ESILV) |
-| **Program** | Master 1 — Financial Engineering (Ingénierie Financière) |
+| **Program** | Master 1 - Financial Engineering (Ingénierie Financière) |
 | **Group** | A4-IF3 |
 | **Course** | C++ for Finance |
 | **Professor** | J. PU |
-| **Academic Year** | 2025–2026 |
+| **Academic Year** | 2025-2026 |
 
 ## 👥 Team
 
