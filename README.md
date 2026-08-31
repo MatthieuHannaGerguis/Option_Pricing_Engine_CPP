@@ -1,23 +1,6 @@
 # Option Pricing Engine - C++ for Finance Project
 
-## 📋 Project Information
-
-| | |
-|---|---|
-| **School** | École Supérieure d'Ingénieurs Léonard-de-Vinci (ESILV) |
-| **Program** | Master 1 - Financial Engineering (Ingénierie Financière) |
-| **Group** | A4-IF3 |
-| **Course** | C++ for Finance |
-| **Professor** | J. PU |
-| **Academic Year** | 2025-2026 |
-
-## 👥 Team
-
-- **Matthieu HANNA GERGUIS**
-- **Renaud DE L'ÉPINE**
-- **Ilian SEGOIN**
-
-## 📖 Description
+## Description
 
 Full object-oriented pricing engine in C++ covering four major topics in computational finance:
 
@@ -26,7 +9,7 @@ Full object-oriented pricing engine in C++ covering four major topics in computa
 - **Monte Carlo simulation** for European and path-dependent (Asian) options, with incremental path generation, 95% confidence intervals, and a singleton random number generator (`MT` class using `std::mt19937`).
 - **CRR as Black-Scholes approximation** convergence of the binomial model to the continuous-time limit.
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 │── Option.cpp / Option.h                          # Abstract base class (payoff, expiry)
